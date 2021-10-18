@@ -1,0 +1,36 @@
+POST http://localhost:3001/create HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "surname": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+### Register
+
+POST http://localhost:3001/register HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Kamil",
+    "lastName": "Test",
+    "email": "kamiltest@hotmail.com",
+    "password": "kamil",
+    "phone": "667749914"
+
+}
+
+### 
+
+POST http://localhost:3001/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "kamiltest@hotmail.com",
+    "password": "kamil"
+}
+
+###
+GET http://localhost:3001/welcome HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNDQ4NjQwMywiZXhwIjoxNjM0NDkzNjAzfQ.SKffNuJtxcbJFteEDFOI0AW75Fit0UpoXz_jY8CoPWg
