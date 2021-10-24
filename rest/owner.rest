@@ -1,0 +1,12 @@
+
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNTAzNzY2NiwiZXhwIjoxNjcxMDM0MDY2fQ.z6uakayOh-rEV8ijE3Z1-aCjYyPw6bM1GOwrXEnKi88
+@api=http://localhost:3001
+### update role 
+PUT {{api}}/role HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+{
+    "userId": "1", 
+    "role": "client"
+}

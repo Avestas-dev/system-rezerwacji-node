@@ -1,0 +1,14 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNTAzNzY2NiwiZXhwIjoxNjcxMDM0MDY2fQ.z6uakayOh-rEV8ijE3Z1-aCjYyPw6bM1GOwrXEnKi88
+@api=http://localhost:3001
+
+### create reservation 
+POST {{api}}/reservation HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+{
+    "name": "Wizyta dentystyczna", 
+    "datetime_start": "2021-10-18T22:00:00.936Z",
+    "datetime_end": "2021-10-18T23:00:00.936Z"
+}
+

@@ -1,0 +1,40 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QiLCJpYXQiOjE2MzUwODI1NTgsImV4cCI6MTY3MTA3ODk1OH0.hODuFNFAb0i6bHuf7vsOAtKWWJzX1LzhzOEu74raTZY
+@api=http://localhost:3001
+
+
+### for testing purpose
+GET {{api}}/ HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+### get all specialists 
+GET {{api}}/specialists HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+### get reservations for specialist with given id 
+GET {{api}}/reservation/3 HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+
+### reserve visit
+PUT {{api}}/reserve HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+{
+    "reservationId": "2"
+}
+
+### cancel reserved visit
+PUT {{api}}/cancel-reservation HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+{
+    "reservationId": "2"
+}
+
+### get user by token
+GET {{api}}/user-by-token
+content-type: application/json
+Authorization: {{token}}

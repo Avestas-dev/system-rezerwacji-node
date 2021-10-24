@@ -1,0 +1,22 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNTAzNzY2NiwiZXhwIjoxNjcxMDM0MDY2fQ.z6uakayOh-rEV8ijE3Z1-aCjYyPw6bM1GOwrXEnKi88
+@api=http://localhost:3001
+### Register
+POST {{api}}/register HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "ddd",
+    "lastName": "ddd",
+    "email": "ddd",
+    "password": "ddd",
+    "phone": "ddd"
+}
+
+### simple login with e-mail and password
+POST {{api}}/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test",
+    "password": "test"
+}
