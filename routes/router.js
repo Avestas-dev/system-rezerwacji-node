@@ -4,7 +4,7 @@ const router = express.Router()
 const common = require('./common')
 const user = require('./user')
 const owner = require('./owner')
-const specialist = require('./owner')
+const specialist = require('./specialist')
 
 router.use('/', common, user, owner, specialist)
 module.exports = router

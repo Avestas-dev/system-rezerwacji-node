@@ -11,26 +11,26 @@ const getAllReservationBySpecialistId = require('../middleware/user/getAllReserv
 const cancelReservation = require('../middleware/user/cancelReservation.js')
 const reserveVisit = require('../middleware/user/reserveVisit.js')
 
-const User = require('../models/user.model')
-const SpecialistJob = require('../models/specialist_job.model')
-const Reservation = require('../models/reservation.model')
-
+// urlencoded
 userRouter.use(express.json())
 userRouter.use(express.urlencoded({ extended: true }))
 
+// auth
+userRouter.use(auth)
+
 // get user from token
-userRouter.get('/user-by-token', auth, getUserByToken)
+userRouter.get('/user-by-token', getUserByToken)
 
 // get all users with role specialist
-userRouter.get('/specialists', auth, getAllSpecialists)
+userRouter.get('/specialists', getAllSpecialists)
 
 // get all reservations for given specialist id
-userRouter.get('/reservation/:id', auth, getAllReservationBySpecialistId)
+userRouter.get('/reservation/:id', getAllReservationBySpecialistId)
 
 // cancel reservation
-userRouter.put('/cancel-reservation', auth, authorize('specialist'), cancelReservation)
+userRouter.put('/cancel-reservation', authorize('specialist'), cancelReservation)
 
 // reserve visit
-userRouter.put('/reserve', auth, reserveVisit)
+userRouter.put('/reserve', reserveVisit)
 
 module.exports = userRouter

@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNTAzNzY2NiwiZXhwIjoxNjcxMDM0MDY2fQ.z6uakayOh-rEV8ijE3Z1-aCjYyPw6bM1GOwrXEnKi88
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJlbWFpbCI6ImNsaWVudCIsImlhdCI6MTYzNTA4NDAzMiwiZXhwIjoxNjM4NjgwNDMyfQ.Vs_yqXsW5Kf5bAVZHhpIWgCW98f76642HtA3JVDOZJI
 @api=http://localhost:3001
 
 ### create reservation 
