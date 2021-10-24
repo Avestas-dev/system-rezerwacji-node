@@ -1,28 +1,20 @@
-POST http://localhost:3001/create HTTP/1.1
-content-type: application/json
-
-{
-    "name": "sample",
-    "surname": "Wed, 21 Oct 2015 18:27:50 GMT"
-}
-
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNTAzNzY2NiwiZXhwIjoxNjcxMDM0MDY2fQ.z6uakayOh-rEV8ijE3Z1-aCjYyPw6bM1GOwrXEnKi88
+@api=http://localhost:3001
 ### Register
-
-POST http://localhost:3001/register HTTP/1.1
+POST {{api}}/register HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Kamil",
+    "firstName": "Adek",
     "lastName": "Test",
-    "email": "kamiltest@hotmail.com",
+    "email": "kamilatedast@hotmail.com",
     "password": "kamil",
-    "phone": "667749914"
+    "phone": "123123123"
 
 }
 
-### 
-
-POST http://localhost:3001/login HTTP/1.1
+### simple login with e-mail and password
+POST {{api}}/login HTTP/1.1
 content-type: application/json
 
 {
@@ -30,7 +22,56 @@ content-type: application/json
     "password": "kamil"
 }
 
-###
-GET http://localhost:3001/welcome HTTP/1.1
+### get all specialists 
+GET {{api}}/specialists HTTP/1.1
 content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNDQ4NjQwMywiZXhwIjoxNjM0NDkzNjAzfQ.SKffNuJtxcbJFteEDFOI0AW75Fit0UpoXz_jY8CoPWg
+Authorization: {{token}}
+
+### get reservations for specialist with given id 
+GET {{api}}/reservation/3 HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNDU5NDgzNSwiZXhwIjoxNjM0NjAyMDM1fQ.S7RO2OdPsd9UYDvNGmm9lP6oelF46z14-O-FxzkC0Xo
+
+### create reservation 
+POST {{api}}/reservation HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNDU5NDgzNSwiZXhwIjoxNjM0NjAyMDM1fQ.S7RO2OdPsd9UYDvNGmm9lP6oelF46z14-O-FxzkC0Xo
+
+{
+    "name": "Wizyta dentystyczna", 
+    "datetime_start": "2021-10-18T22:00:00.936Z",
+    "datetime_end": "2021-10-18T23:00:00.936Z"
+}
+
+### update role 
+PUT {{api}}/role HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNDU5NDgzNSwiZXhwIjoxNjM0NjAyMDM1fQ.S7RO2OdPsd9UYDvNGmm9lP6oelF46z14-O-FxzkC0Xo
+
+{
+    "userId": "1", 
+    "role": "client"
+}
+
+### reserve visit
+PUT {{api}}/reserve HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNDU5NDgzNSwiZXhwIjoxNjM0NjAyMDM1fQ.S7RO2OdPsd9UYDvNGmm9lP6oelF46z14-O-FxzkC0Xo
+
+{
+    "reservationId": "2"
+}
+### cancel reserved visit
+PUT {{api}}/cancel-reservation HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbWlsdGVzdEBob3RtYWlsLmNvbSIsImlhdCI6MTYzNDU5NDgzNSwiZXhwIjoxNjM0NjAyMDM1fQ.S7RO2OdPsd9UYDvNGmm9lP6oelF46z14-O-FxzkC0Xo
+
+{
+    "reservationId": "2"
+}
+
+
+### get user by token
+GET {{api}}/user-by-token
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFzZCIsImlhdCI6MTYzNDc3MjAyNCwiZXhwIjoxNjM0Nzc5MjI0fQ.V-_ZUeXK9HudmuoN78xQDEfZmiTJ_SbnYvvnaGtKGKU

@@ -9,21 +9,14 @@ const Reservation = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    client_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    specialist_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+
     reservation_status: {
       type: DataTypes.ENUM(reservationStatusEnum),
       allowNull: false,
     },
     reservation_timestamp: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     datetime_start: {
       type: DataTypes.DATE,

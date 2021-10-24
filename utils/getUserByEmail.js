@@ -4,6 +4,7 @@ const getUserByEmail = async (email) => {
     where: {
       email: email,
     },
+    attributes: ['id', 'firstName', 'lastName', 'email', 'phone', 'role'],
   })
 }
 

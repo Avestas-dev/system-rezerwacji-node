@@ -1,12 +1,20 @@
 const User = require('./user.model')
 const Reservation = require('./reservation.model.js')
-
+const SpecialistJob = require('./specialist_job.model')
 // TODO: uncomment when new way of roles will be made
 // const Role = require('./role.model.js')
 // const RolePermission = require('./role_permission.model.js')
 // const UserPermission = require('./user_permission.model.JS')
 // const Permission = require('./permission.model.js')
 // const UserRole = require('./user_role.model.JS')
+
+SpecialistJob.belongsTo(User)
+Reservation.belongsTo(User, {
+  foreignKey: 'client_id',
+})
+Reservation.belongsTo(User, {
+  foreignKey: 'specialist_id',
+})
 
 const sequelize = require('../data/database.js')
 
@@ -21,7 +29,7 @@ const checkDBConnection = async () => {
 
 checkDBConnection()
 
-sequelize.sync()
+// sequelize.sync()
 // User.create({
 //   firstName: 'Kamil',
 //   lastName: 'Poręba',
