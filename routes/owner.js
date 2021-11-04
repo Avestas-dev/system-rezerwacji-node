@@ -9,8 +9,16 @@ ownerRouter.use(express.urlencoded({ extended: true }))
 const auth = require('../middleware/common/auth.js')
 const authorize = require('../middleware/common/authorize.js')
 const changeRole = require('../middleware/owner/changeRole.js')
+const registerSpecialist = require('../middleware/owner/registerSpecialist.js')
+const deleteSpecialist = require('../middleware/owner/deleteSpecialist.js')
+
+ownerRouter.use(auth, authorize('owner'))
 
 // change role of specialist with given id
-ownerRouter.put('/role', auth, authorize('owner'), changeRole)
+ownerRouter.put('/role', changeRole)
+
+ownerRouter.post('/add-specialist', registerSpecialist)
+
+ownerRouter.delete('/specialist/:userId', deleteSpecialist)
 
 module.exports = ownerRouter

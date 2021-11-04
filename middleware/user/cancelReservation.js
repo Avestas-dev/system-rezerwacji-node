@@ -1,18 +1,18 @@
 const Reservation = require('../../models/reservation.model')
 const cancelReservation = async (req, res) => {
   try {
-    const { reservationId } = req.body
+    const { id } = req.body
 
-    await Reservation.update(
-      { reservation_status: 'free', client_id: null },
+    Reservation.update(
+      { reservation_status: 'free', client_id: null, reservation_timestamp: null },
       {
         where: {
-          id: reservationId,
-          specialist_id: req.user.id,
+          id: id,
+          client_id: req.user.id,
         },
       },
     )
-    return res.status(200).send('Reservation done successfully.')
+    return res.status(200).send('Rezerwacja anulowana pomyślnie.')
   } catch (err) {
     console.log(err)
     return res.status(500).send(err)

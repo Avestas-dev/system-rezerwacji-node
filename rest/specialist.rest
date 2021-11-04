@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJlbWFpbCI6ImNsaWVudCIsImlhdCI6MTYzNTA4NDAzMiwiZXhwIjoxNjM4NjgwNDMyfQ.Vs_yqXsW5Kf5bAVZHhpIWgCW98f76642HtA3JVDOZJI
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QiLCJpYXQiOjE2MzUwODI1NTgsImV4cCI6MTY3MTA3ODk1OH0.hODuFNFAb0i6bHuf7vsOAtKWWJzX1LzhzOEu74raTZY
 @api=http://localhost:3001
 
 ### create reservation 
@@ -8,7 +8,51 @@ Authorization: {{token}}
 
 {
     "name": "Wizyta dentystyczna", 
-    "datetime_start": "2021-10-18T22:00:00.936Z",
-    "datetime_end": "2021-10-18T23:00:00.936Z"
+    "datetime_start": "2021-10-18T23:00:00.936Z",
+    "duration": 90
 }
 
+### create reservation from to 
+POST {{api}}/reservation-from-to HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+{
+    "name": "Wizyta dentystyczna", 
+    "date_start": "2021-10-30T14:08:09.740Z",
+    "date_end": "2021-10-30T14:08:09.740Z",
+    "time_start": "2021-10-25T12:00:00.936Z",
+    "time_end": "2021-10-25T20:00:00.936Z",
+    "duration": 60
+}
+### delete reservation
+POST {{api}}/delete-reservation HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+{
+    "id": 2246
+}
+
+### delete reservation from to
+POST {{api}}/delete-reservation-from-to HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+{
+    "datetime_start": "2021-10-15T12:08:09.740Z",
+    "datetime_end": "2021-10-30T12:08:09.740Z"
+}
+###
+GET {{api}}/specialist-vists/0 HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+### 
+POST {{api}}/cancel-reservation HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+{
+    "id": 3199
+}

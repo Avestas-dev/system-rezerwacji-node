@@ -10,6 +10,8 @@ const getAllSpecialists = require('../middleware/user/getAllSpecialists.js')
 const getAllReservationBySpecialistId = require('../middleware/user/getAllReservationBySpecialistId.js')
 const cancelReservation = require('../middleware/user/cancelReservation.js')
 const reserveVisit = require('../middleware/user/reserveVisit.js')
+const getWeekReservationBySpecialistId = require('../middleware/user/getWeekReservationBySpecialistId.js')
+const getUserReservations = require('../middleware/user/getUserReservations.js')
 
 // urlencoded
 userRouter.use(express.json())
@@ -28,9 +30,15 @@ userRouter.get('/specialists', getAllSpecialists)
 userRouter.get('/reservation/:id', getAllReservationBySpecialistId)
 
 // cancel reservation
-userRouter.put('/cancel-reservation', authorize('specialist'), cancelReservation)
+userRouter.put('/cancel-user-reservation', cancelReservation)
 
 // reserve visit
 userRouter.put('/reserve', reserveVisit)
+
+// get weekly reservation by id and offset
+userRouter.get('/week-reservation/:id/:offset', getWeekReservationBySpecialistId)
+
+// get all reservations for given user
+userRouter.get('/all-user-reservations', getUserReservations)
 
 module.exports = userRouter

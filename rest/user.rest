@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QiLCJpYXQiOjE2MzUwODI1NTgsImV4cCI6MTY3MTA3ODk1OH0.hODuFNFAb0i6bHuf7vsOAtKWWJzX1LzhzOEu74raTZY
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QwIiwiaWF0IjoxNjM1ODA5MjA4LCJleHAiOjE2NzE4MDU2MDh9.KSoU_67pMqk0AjbGC5FYV6fXpBXveRoELxjPrNjLvLE
 @api=http://localhost:3001
 
 
@@ -13,7 +13,7 @@ content-type: application/json
 Authorization: {{token}}
 
 ### get reservations for specialist with given id 
-GET {{api}}/reservation/3 HTTP/1.1
+GET {{api}}/reservation/19 HTTP/1.1
 content-type: application/json
 Authorization: {{token}}
 
@@ -22,19 +22,33 @@ Authorization: {{token}}
 PUT {{api}}/reserve HTTP/1.1
 content-type: application/json
 Authorization: {{token}}
+
 {
-    "reservationId": "2"
+    "id": "3202"
 }
 
 ### cancel reserved visit
-PUT {{api}}/cancel-reservation HTTP/1.1
+PUT {{api}}/cancel-user-reservation HTTP/1.1
 content-type: application/json
 Authorization: {{token}}
+
+
 {
-    "reservationId": "2"
+    "id": "3203"
 }
 
 ### get user by token
 GET {{api}}/user-by-token
+content-type: application/json
+Authorization: {{token}}
+
+### get given specialist reservations for week
+GET {{api}}/week-reservation/9/0
+content-type: application/json
+Authorization: {{token}}
+
+
+### get all user reservations
+GET {{api}}/all-user-reservations
 content-type: application/json
 Authorization: {{token}}

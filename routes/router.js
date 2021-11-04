@@ -6,5 +6,5 @@ const user = require('./user')
 const owner = require('./owner')
 const specialist = require('./specialist')
 
-router.use('/', common, user, owner, specialist)
+router.use('/', [common, user, specialist, owner])
 module.exports = router

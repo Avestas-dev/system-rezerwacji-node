@@ -6,7 +6,7 @@ const router = require('./routes/router.js')
 const cors = require('cors')
 const corsOpts = {
   origin: '*',
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }
 

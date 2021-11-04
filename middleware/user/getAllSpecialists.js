@@ -5,8 +5,7 @@ const getAllSpecialists = async (req, res) => {
   try {
     let specialists = await SpecialistJob.findAll({
       // where: { role: 'specialist' },
-      include: [{ model: User, attributes: ['firstName', 'lastName'] }],
-
+      include: [{ model: User, attributes: ['firstName', 'lastName', 'email', 'phone'] }],
       attributes: ['userId', 'jobName'],
     }).then((res) => res.map((specialist) => specialist.dataValues))
     return res.status(200).send(specialists)

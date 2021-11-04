@@ -11,7 +11,7 @@ const hasAccess = (reqRole, userRole) => {
   }
 }
 
-const hasRole = (role) => {
+const authorize = (role) => {
   return async function (req, res, next) {
     try {
       if (hasAccess(role, req.user.role)) {
@@ -26,4 +26,4 @@ const hasRole = (role) => {
   }
 }
 
-module.exports = hasRole
+module.exports = authorize
